@@ -1,19 +1,18 @@
 #include <iostream>
 using namespace std;
 
-void remplissage(int &tab[], int nbr)
+void remplissage(int tab[], int nbr)
     {
         /*void remplissage est une fontion qui permet de remplir un tableau. Il reçoit en paramètre l'adresse d'un tableau et le nombre d'éléments de ce tableau */
+        cout<<"Les lignes qui vont suivre vont vous aider à remplir votre tableau "<<endl;
         for ( int i=0; i<nbr; i++)
         {
-            cout<<"Les lignes qui vont suivre vont vous aider à remplir votre tableau "<<endl;
-            cout<<"veuillez entrer l'élément d'indice "<<i+1<<"de votre tableau: "<<endl;
+            cout<<"veuillez entrer l'élément d'indice "<<i+1<<" de votre tableau: ";
             cin>>tab[i];
         }
     };
 
-
-void sort_selection(int *sort_table[], int nbr)
+void sort_selection(int sort_table[], int nbr)
     {
             /*cette fonction lui éffectue le trie proprement dit*/
 
@@ -40,6 +39,7 @@ void sort_selection(int *sort_table[], int nbr)
                 }
         sort_table0[i]=min;
         init++;
+        min=sort_table0[init];
         }
 /*recopiage des éléments de sort_table0 dans sort_table afin d'avoir un tableau trier dans le main*/
 
@@ -56,6 +56,7 @@ void affichage(int table_receive[], int nbr)
     {
         cout<<table_receive[i]<<" | ";
     };
+    cout<<endl;
 };
 
 int main()
@@ -66,9 +67,9 @@ int main()
     remplissage(sort_table0, 4);/* appel de la fonction remplissage pour remplir notre d'éléments... */
 
     cout<<"Affichage du contenu du tableau avant tri "<<endl;
-    affichage(sort_table0);
+    affichage(sort_table0, 4);
 
-    sort_selection(&sort_table0, 4); /*  appel à la fonction sort_selection pour le tri proprement dit */
+    sort_selection(sort_table0, 4); /*  appel à la fonction sort_selection pour le tri proprement dit */
 
     cout<<"Affichage du contenu du tableau après Tri "<<endl;
     affichage(sort_table0, 4);
